@@ -11,7 +11,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Code Challenge"
+        android:text=""
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,10 +23,10 @@
         android:layout_height="57dp"
         android:layout_marginTop="264dp"
         android:onClick="calculate"
-        android:text="I'm a button"
+        android:text="calculate Mean"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="144dp"
-        tools:ignore="HardcodedText" />
+        tools:ignore="HardcodedText"
+        tools:layout_editor_absoluteX="143dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
