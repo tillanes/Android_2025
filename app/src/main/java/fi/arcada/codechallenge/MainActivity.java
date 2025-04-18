@@ -3,6 +3,7 @@ package fi.arcada.codechallenge;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -51,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         sharedPreferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
 
         // En enkel intro text
-        welcomeTextView.setText("Hej på dig!");
+
 
         // Hämta värdet som just nu finns i vår nyckel APP_COUNTER_KEY
         int appCounter = sharedPreferences.getInt(APP_COUNTER_KEY, 0);
@@ -75,8 +76,20 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        // onResume kallas varje gång denna Activity kommer i fokus
-        // Vi kan använda vår boolean för att se till att saker funkar när vi kommer från settings
+
+
+        something = getSharedPreferences("AppCounterPrefs", MODE_PRIVATE);
+
+
+        String savedMessage = something.getString("Message", "No message found");
+
+
+        Log.d("SharedPrefsDebug", "Saved message in MainActivity: " + savedMessage);
+        welcomeTextView.setText(savedMessage);
+
+
+
+
         if (!isInitialLaunch) {
             welcomeTextView.setText("Hej igen!");
         } else {
