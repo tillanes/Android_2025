@@ -112,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         movingAvg(temperatures);
-        Log.d("ArrayList", temperatures.toString());
+
 
 
     }
