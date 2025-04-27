@@ -12,6 +12,8 @@ import android.content.SharedPreferences;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.util.ArrayList;
+
 // Denna MainActivity håller koll på hur många gånger man öppnat appen
 // Den säger även två olika meddelanden - En vid start och en efter man varit i settings
 public class MainActivity extends AppCompatActivity {
@@ -96,6 +98,38 @@ public class MainActivity extends AppCompatActivity {
             isInitialLaunch = false;
         }
 
+        ArrayList<Double> temperatures = new ArrayList<>();
+        temperatures.add(17.5);
+        temperatures.add(16.0);
+        temperatures.add(16.5);
+        temperatures.add(15.0);
+        temperatures.add(17.5);
+        temperatures.add(18.0);
+        temperatures.add(15.5);
+        temperatures.add(20.0);
+        temperatures.add(19.5);
+        temperatures.add(16.0);
+
+
+        movingAvg(temperatures);
+        Log.d("ArrayList", temperatures.toString());
+
+
+    }
+
+    public Double movingAvg(ArrayList<Double> temperatures) {
+        Log.d("ArrayList", "Original temperatures: " + temperatures.toString());
+
+
+        for (int i = 0; i <= temperatures.size() - 3; i++) {
+            double sum = temperatures.get(i) + temperatures.get(i + 1) + temperatures.get(i + 2);
+            double avg = sum / 3.0;
+
+            Log.d("SMA", "Average of [" + temperatures.get(i) + ", " +
+                    temperatures.get(i + 1) + ", " + temperatures.get(i + 2) + "] = " + avg);
+        }
+
+        return null;
     }
 
     private void openSettings() {
